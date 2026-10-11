@@ -1,0 +1,19 @@
+# Build output
+build/
+cmake-build-*/
+out/
+
+# Raw benchmark output (final charts in results/ are committed)
+results/raw/
+
+# Tooling
+CMakeUserPresets.json
+compile_commands.json
+.cache/
+.vscode/
+.idea/
+.DS_Store
+
+# Profiling
+perf.data*
+*.svg.tmp
