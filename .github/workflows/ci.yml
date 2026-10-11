@@ -3,7 +3,14 @@ name: CI
 on:
   push:
     branches: [main]
+    paths-ignore: ['**.md', 'LICENSE', 'results/**']
   pull_request:
+    paths-ignore: ['**.md', 'LICENSE', 'results/**']
+
+# A newer push to the same branch/PR cancels the run still in progress.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-test:
